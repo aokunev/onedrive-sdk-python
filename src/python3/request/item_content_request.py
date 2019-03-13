@@ -78,6 +78,16 @@ class ItemContentRequest(RequestBase):
         entity = yield from future
         return entity
 
+    def download_pdf(self, content_local_path):
+        """Downloads the specified Item as pdf.
+        
+        Args:
+            content_local_path (str):
+                The path where the Item should be downloaded to
+        """
+        self._request_url= self._request_url + '?format=pdf'
+        self.download_item(content_local_path)
+
     def download(self, content_local_path):
         """Downloads the specified Item.
         

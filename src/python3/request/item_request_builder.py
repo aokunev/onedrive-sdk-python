@@ -128,6 +128,15 @@ class ItemRequestBuilder(RequestBuilderBase):
         entity = yield from self.content.request().upload_async(local_path)
         return entity
 
+    def download_pdf(self, local_path):
+        """Downloads the specified entity as pdf.
+
+        Args:
+            local_path (str): The path where the entity should be
+                downloaded to
+        """
+        return self.content.request().download_pdf(local_path)
+
     def download(self, local_path):
         """Downloads the specified entity.
 
